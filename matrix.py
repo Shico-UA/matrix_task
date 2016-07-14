@@ -4,7 +4,7 @@ import random
 # Create and return matrix raw
 def create_matrix_raw():
     raw = []
-    [raw.append(random.randint(-9, 9)) for num in range(10)]
+    [raw.append(random.randint(1, 9)) for num in range(10)]
     return raw
 
 
@@ -91,7 +91,12 @@ intersections = intersect(matrix)
 
 # Find the three minimum values
 def find_minimum(intersections):
-    return [min(intersections) for i in range(3)]
+    results = []
+    for i in range(3):
+        minimum = min(intersections)
+        results.append(minimum)
+        intersections.remove(minimum)
+    return results
 
 print "Three minim values of perpendicular intersection in the matrix are: "
 print find_minimum(intersections)
