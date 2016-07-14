@@ -33,9 +33,10 @@ random_raw_num = random.randint(0, len(matrix))
 def find_raw(matrix, random_raw_num):
     return matrix[0][random_raw_num]
 
-print "Random raw from our matrix: %s" % find_raw(matrix, random_raw_num)
+raw = find_raw(matrix, random_raw_num)
+print "Random raw from our matrix: {}".format(raw)
 print "*" * 80
-    
+
 # Find random matrix column
 random_col_num = random.randint(0, len(matrix))
 def find_col(matrix, random_col_num):
@@ -44,10 +45,25 @@ def find_col(matrix, random_col_num):
         column.append(item[random_col_num])
     return column
 
-print "Random column from our matrix: %s" % find_col(matrix, random_col_num)
+column = find_col(matrix, random_col_num)
+print "Random column from our matrix: {}".format(column)
 print "*" * 80
 
 
+# Function that takes two lists and multiply them
+def lists_multiply(list_1, list_2):
+    if len(list_1) == len(list_2):
+        common_list = []
+        for item in range(len(list_1)):
+            common_list.append(list_1[item] * list_2[item])
+        mult_result = 1
+        for num in common_list:
+            mult_result *= num
+    return mult_result
 
+mult_result = lists_multiply(raw, column)
+print """The results of the multiplication of random raw to random column:
+{}""".format(mult_result)
+print "*" * 80
 
 
